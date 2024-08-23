@@ -1,15 +1,28 @@
 document.getElementById('miFormulario').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita que se recargue la página al enviar el formulario
+    event.preventDefault();
 
-    // Recoger los valores del formulario
     const nombre = document.getElementById('nombre').value;
-    const anoNacimiento = document.getElementById('anoNacimiento').value;
-    const dni = document.getElementById('dni').value;
+    const apellido = document.getElementById('apellido').value;
+    const anioNacimiento = document.getElementById('anioNacimiento').value;
 
-    // Mostrar los valores en la consola (puedes adaptarlo para hacer algo más interesante)
-    console.log('Nombre:', nombre);
-    console.log('Año de Nacimiento:', anoNacimiento);
-    console.log('DNI:', dni);
+    const mensaje = document.getElementById('mensaje');
 
-    // Podrías agregar código aquí para enviar los datos a un servidor, por ejemplo
+    if (nombre === '' || apellido === '' || anioNacimiento === '') {
+        mensaje.textContent = 'Parece que te has dejado algún campo, papá';
+    } else {
+        mensaje.textContent = 'Muchas gracias, papá!';
+        
+        const tablaRegistros = document.getElementById('tablaRegistros').querySelector('tbody');
+        const nuevaFila = tablaRegistros.insertRow();
+        
+        const celdaNombre = nuevaFila.insertCell(0);
+        const celdaApellido = nuevaFila.insertCell(1);
+        const celdaAnioNacimiento = nuevaFila.insertCell(2);
+        
+        celdaNombre.textContent = nombre;
+        celdaApellido.textContent = apellido;
+        celdaAnioNacimiento.textContent = anioNacimiento;
+
+        document.getElementById('miFormulario').reset();
+    }
 });
