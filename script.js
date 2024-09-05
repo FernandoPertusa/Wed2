@@ -1,4 +1,4 @@
-document.getElementById("formulario").addEventListener("submit", function(event) {
+document.getElementById("formulario").addEventListener("submit", async function(event) {
     event.preventDefault();
 
     const nombre = document.getElementById("nombre").value;
@@ -11,9 +11,30 @@ document.getElementById("formulario").addEventListener("submit", function(event)
     if (nombre === "" || pregunta1 === "" || pregunta10 === "") {
         alert("Por favor, rellena todos los campos.");
     } else {
-        // Guardar las respuestas en la base de datos (MongoDB)
-        // Aquí en el siguiente paso vamos a conectar con MongoDB para guardar estos datos
-        alert("¡Gracias por enviar tu respuesta!");
+        const datos = {
+            nombre: nombre,
+            pregunta1: pregunta1,
+            pregunta2: pregunta2,
+            // Añadir todas las preguntas aquí
+            pregunta10: pregunta10
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/guardar-respuesta', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(datos),
+            });
+            if (response.ok) {
+                alert("¡Gracias por enviar tu respuesta!");
+            } else {
+                alert("Hubo un problema al enviar los datos.");
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
     }
 });
 

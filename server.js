@@ -3,12 +3,17 @@ require('dotenv').config();
 
 // Importar MongoClient desde el paquete de MongoDB
 const { MongoClient } = require('mongodb');
+const express = require('express');
+const app = express();
+
+// Configurar Express para interpretar JSON
+app.use(express.json());
 
 // Recuperar la URI de MongoDB desde el archivo .env
 const uri = process.env.MONGO_URI;
 
 // Crear una instancia del cliente MongoDB
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(uri);
 
 // Función para guardar los datos en MongoDB
 async function guardarDatos(datos) {
@@ -25,14 +30,15 @@ async function guardarDatos(datos) {
     }
 }
 
-// Ejemplo de datos a guardar (deberás integrar la parte del frontend para que envíe estos datos)
-const ejemploDatos = {
-    nombre: 'Fernando',
-    pregunta1: 8,
-    pregunta2: 7,
-    // Añadir aquí las demás preguntas y respuestas
-    pregunta10: 9
-};
+// Ruta para recibir los datos del formulario
+app.post('/guardar-respuesta', async (req, res) => {
+    const datos = req.body;
+    console.log('Datos recibidos del frontend:', datos); // Verifica que los datos están llegando
+    await guardarDatos(datos);
+    res.send('Datos guardados');
+});
 
-// Llamar a la función para guardar los datos
-guardarDatos(ejemploDatos);
+// Iniciar el servidor en el puerto 3000
+app.listen(3000, () => {
+    console.log('Servidor escuchando en el puerto 3000');
+});
