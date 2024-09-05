@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Personalidad</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <div class="container">
@@ -32,7 +32,6 @@
                 <input type="number" id="pregunta3" name="pregunta3" min="0" max="10" required>
             </div>
             <!-- Añadir más preguntas similares hasta la 10 -->
-            <!-- Ejemplo de pregunta extra -->
             <div class="form-group">
                 <label for="pregunta10">¿Qué tan responsable te consideras?</label>
                 <input type="number" id="pregunta10" name="pregunta10" min="0" max="10" required>
@@ -42,8 +41,9 @@
         </form>
 
         <button id="resultados-button" class="submit-button">Ver Resultados</button>
-
-        <script src="script.js"></script>
     </div>
+
+    <!-- Cargar el script al final para asegurar que la página cargue completamente -->
+    <script src="/script.js"></script>
 </body>
 </html>
