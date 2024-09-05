@@ -2,28 +2,21 @@ document.getElementById("formulario").addEventListener("submit", function(event)
     event.preventDefault();
 
     const nombre = document.getElementById("nombre").value;
-    const apellido = document.getElementById("apellido").value;
-    const ano = document.getElementById("ano").value;
-    const mensaje = document.getElementById("mensaje");
+    const pregunta1 = document.getElementById("pregunta1").value;
+    const pregunta2 = document.getElementById("pregunta2").value;
+    // Añadir las demás preguntas de la misma forma
+    const pregunta10 = document.getElementById("pregunta10").value;
 
-    if (nombre === "" || apellido === "" || ano === "") {
-        mensaje.textContent = "Parece que te has dejado algún campo, papá";
+    // Validación simple
+    if (nombre === "" || pregunta1 === "" || pregunta10 === "") {
+        alert("Por favor, rellena todos los campos.");
     } else {
-        mensaje.textContent = "Muchas gracias, papá!";
-        agregarRegistro(nombre, apellido, ano);
-        document.getElementById("formulario").reset();
+        // Guardar las respuestas en la base de datos (MongoDB)
+        // Aquí en el siguiente paso vamos a conectar con MongoDB para guardar estos datos
+        alert("¡Gracias por enviar tu respuesta!");
     }
 });
 
-function agregarRegistro(nombre, apellido, ano) {
-    const tabla = document.getElementById("tabla-registros").getElementsByTagName("tbody")[0];
-    const nuevaFila = tabla.insertRow();
-
-    const celdaNombre = nuevaFila.insertCell(0);
-    const celdaApellido = nuevaFila.insertCell(1);
-    const celdaAno = nuevaFila.insertCell(2);
-
-    celdaNombre.textContent = nombre;
-    celdaApellido.textContent = apellido;
-    celdaAno.textContent = ano;
-}
+document.getElementById("resultados-button").addEventListener("click", function() {
+    window.location.href = "resultados.html";
+});

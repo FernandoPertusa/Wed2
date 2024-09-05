@@ -3,46 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Primera Página Web</title>
+    <title>Formulario de Personalidad</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Hola papá, esta es mi primera página web</h1>
-        <p class="subtitle">Dame tus datos, ya verás que guay!</p>
+        <h1>¡Hola! Cuéntame un poco sobre tu personalidad</h1>
+        <p class="subtitle">Responde las siguientes preguntas puntuando de 0 a 10.</p>
 
         <form id="formulario">
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
             </div>
+
+            <!-- Preguntas -->
             <div class="form-group">
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido" required>
+                <label for="pregunta1">¿Qué tan extrovertido te consideras?</label>
+                <input type="number" id="pregunta1" name="pregunta1" min="0" max="10" required>
             </div>
             <div class="form-group">
-                <label for="ano">Año de nacimiento:</label>
-                <input type="number" id="ano" name="ano" required>
+                <label for="pregunta2">¿Qué tan organizado eres?</label>
+                <input type="number" id="pregunta2" name="pregunta2" min="0" max="10" required>
             </div>
-            <button type="submit" class="submit-button">Listo</button>
+            <div class="form-group">
+                <label for="pregunta3">¿Qué tan creativo eres?</label>
+                <input type="number" id="pregunta3" name="pregunta3" min="0" max="10" required>
+            </div>
+            <!-- Añadir más preguntas similares hasta la 10 -->
+            <!-- Ejemplo de pregunta extra -->
+            <div class="form-group">
+                <label for="pregunta10">¿Qué tan responsable te consideras?</label>
+                <input type="number" id="pregunta10" name="pregunta10" min="0" max="10" required>
+            </div>
+
+            <button type="submit" class="submit-button">Enviar</button>
         </form>
 
-        <p id="mensaje" class="mensaje"></p>
+        <button id="resultados-button" class="submit-button">Ver Resultados</button>
 
-        <table id="tabla-registros">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Año de Nacimiento</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Aquí se añadirán las filas con los datos -->
-            </tbody>
-        </table>
+        <script src="script.js"></script>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
