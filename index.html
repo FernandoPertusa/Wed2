@@ -4,45 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Personalidad</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>¡Hola! Cuéntame un poco sobre tu personalidad</h1>
-        <p class="subtitle">Responde las siguientes preguntas puntuando de 0 a 10.</p>
+    <h1>Formulario de Personalidad</h1>
+    <form id="personalidad-form">
+        <label for="ordenado">¿Cómo de ordenado eres?</label>
+        <input type="number" id="ordenado" name="ordenado" min="1" max="10" required><br><br>
 
-        <form id="formulario">
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
+        <label for="responsable">¿Cómo de responsable eres?</label>
+        <input type="number" id="responsable" name="responsable" min="1" max="10" required><br><br>
 
-            <!-- Preguntas -->
-            <div class="form-group">
-                <label for="pregunta1">¿Qué tan extrovertido te consideras?</label>
-                <input type="number" id="pregunta1" name="pregunta1" min="0" max="10" required>
-            </div>
-            <div class="form-group">
-                <label for="pregunta2">¿Qué tan organizado eres?</label>
-                <input type="number" id="pregunta2" name="pregunta2" min="0" max="10" required>
-            </div>
-            <div class="form-group">
-                <label for="pregunta3">¿Qué tan creativo eres?</label>
-                <input type="number" id="pregunta3" name="pregunta3" min="0" max="10" required>
-            </div>
-            <div class="form-group">
-                <label for="pregunta10">¿Qué tan responsable te consideras?</label>
-                <input type="number" id="pregunta10" name="pregunta10" min="0" max="10" required>
-            </div>
+        <label for="limpio">¿Cómo de limpio eres?</label>
+        <input type="number" id="limpio" name="limpio" min="1" max="10" required><br><br>
 
-            <button type="submit" class="submit-button">Enviar</button>
-        </form>
+        <button type="submit">Enviar</button>
+    </form>
 
-        <button id="resultados-button" class="submit-button">Ver Resultados</button>
-    </div>
-
-    <!-- Cargar el script al final para asegurar que la página cargue completamente -->
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
